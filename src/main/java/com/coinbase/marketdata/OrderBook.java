@@ -41,6 +41,7 @@ public class OrderBook {
                         .filter(p->((String)((List)p).get(0)).equalsIgnoreCase("sell"))
                         .filter(p-> new BigDecimal((String)((List)p).get(2)).compareTo(BigDecimal.ZERO)>0)
                         .collect(Collectors.toMap(p -> ((List)p).get(1), p ->((List)p).get(2))));
+            loadAskPrices();
         } finally {
             askLock.unlock();
         }
@@ -52,6 +53,7 @@ public class OrderBook {
                     .filter(p->((String)((List)p).get(0)).equalsIgnoreCase("buy"))
                     .filter(p-> new BigDecimal((String)((List)p).get(2)).compareTo(BigDecimal.ZERO)>00)
                     .collect(Collectors.toMap(p -> ((List)p).get(1), p ->((List)p).get(2))));
+            loadBidPrices();
         } finally {
             bidLock.unlock();
         }
