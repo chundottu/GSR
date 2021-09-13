@@ -22,7 +22,7 @@ public class MarketDataFeed {
             final OrderBook orderBook = new OrderBook(DEFAULT_ORDER_BOOK_DEPTH);
             clientEndPoint.addMessageHandler(new WebsocketClientEndpoint.MessageHandler() {
                 public void handleMessage(String message) {
-                    logger.printLine(message);
+                    //logger.printLine(message);
                     L2ChannelData dataUpdate = gson.fromJson(message, L2ChannelData.class);
                     if("snapshot".equalsIgnoreCase(dataUpdate.getType())) {
                         orderBook.buildOrderBook(dataUpdate);
