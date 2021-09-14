@@ -4,5 +4,5 @@ The project connects to Coinbase Websocket server, subscribes to Level2 data for
 A delay of 4sec is introduced after each L2Update message so that the logs can be seen on the console without quickly scrolling up.
 
 Sample command:
-# java com.coinbase.marketdata.MarketDataFeed ETH-USD
+### java com.coinbase.marketdata.MarketDataFeed ETH-USD
 
